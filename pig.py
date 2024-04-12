@@ -10,8 +10,8 @@ def roll():
 while True:
     players = input("Enter the number of players (2-4): ")
     if players.isdigit(): #checking if the string is a valid number before converting it to an int
-        players = int(players)
-        if 2 <= players <= 4:
+        players = int(players) #converting to int 
+        if 2 <= players <= 4: #makes sure the amount of players is 2-4 people 
             break
         else:
             print("Must be between 2 - 4 people")
@@ -43,11 +43,11 @@ while max(player_scores) < max_score:
                 current_score += value #if one isn't rolled then the process continues after printing the value of what the player rolled and adds it to their streak value.
                 print("You rolled a: ", value)
 
-            print("Your sore is:", current_score)
+            print("Your score is:", current_score)
 
         player_scores[player_idx] += current_score
         print("Your total score is:", player_scores[player_idx])
 
 max_score = max(player_scores)
 winning_idx = player_scores.index(max_score)
-print("Player", winning_idx + 1, "is the winner with a score of:", max_score)
+print("Player", winning_idx + 1, "is the winner with a score of:", max_score) #'1' is added here because indexes in python start at 0 and we want to make sure we're going from 1-4, not 0-3
